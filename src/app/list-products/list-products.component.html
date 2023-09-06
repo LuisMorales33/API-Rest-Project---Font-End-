@@ -1,0 +1,34 @@
+<div class="alert alert-success" *ngIf='deleteMessage'> {{ deleteMessage }}</div>
+<h1 class="text-center">Products</h1>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Exists</th>
+                <th>Actualization</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{ product.description }}</td>
+                <td>{{ product.brand }}</td>
+                <td>${{ product.price }} MXN</td>
+                <td>{{ product.exist }}</td>
+                <td>{{ product.date | date }}</td>
+                <td>
+                    <button (click)="updateProduct(product.id)" class="btn btn-success"> Edit</button>
+                    &nbsp; 
+                    <button (click)="deleteProduct(product.id)" class="btn btn-warning"> Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+    <button (click)="addProduct()" class="btn btn-success"> Add</button>
+</div>
+</div>
+
